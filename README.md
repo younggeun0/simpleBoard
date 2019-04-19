@@ -1,6 +1,6 @@
 # 📌 간단 게시판
 
-* **Spring framework, MyBatis**를 이용한 간단 게시판
+* **Spring, MyBatis**를 이용한 간단 게시판
 * 글 등록, 조회 기능 구현
   * 게시판 페이징 연습용 토이프로젝트
 
