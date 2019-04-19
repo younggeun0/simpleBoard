@@ -33,12 +33,32 @@
 
 			lang : 'ko-KR'
 		});
+	
+		$("#writeBtn").click(function() {
+			
+			var subject = $("#subject").val();
+			
+			if (subject == "") {
+				alert("제목을 입력해주세요.");
+				$("#subject").focus();
+				return;
+			}
+			
+			var content = $("#summernote").val();
+			
+			if (content == "") {
+				alert("내용을 입력해주세요.");
+				return;
+			}
+			
+			$("#writeFrm").submit();
+		});
 	});
 </script>
 
 </head>
 <body>
-	<form>
+	<form id="writeFrm" action="write_process.do" method="post">
 		<div class="container form-group" id="wrap">
 			<div class="row">
 				<div class="col-12 text-center">
@@ -48,17 +68,18 @@
 
 			<div class="row">
 				<div class="col-9" style="margin-top: 10px; margin-left: 100px;">
-					<input type="text" class="form-control" placeholder="제목을 입력해주세요(최대 100자)">
+					<input id="subject" type="text" name="subject" class="form-control" placeholder="제목을 입력해주세요(최대 100자)">
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-9 " style="margin-top: 10px; margin-left: 100px;">
-					<input type="text" class="form-control" id="summernote">
+					<textarea id="summernote" name="content"></textarea>
 				</div>
 			</div>
 
 			<div class="row" style="margin-top: 30px;">
-				<a class="btn btn-secondary btn" href="#void" role="button" style="margin-left: 320px;">목록으로</a> <a class="btn btn-secondary btn" href="#void" role="button" style="margin-left: 10px;">작성</a>
+				<a class="btn btn-secondary btn" href="index.do?currPage=${ param.currPage }" role="button" style="margin-left: 320px;">목록으로</a>
+				<a class="btn btn-secondary btn" href="#" id="writeBtn" role="button" style="margin-left: 10px;">작성</a>
 			</div>
 		</div>
 	</form>

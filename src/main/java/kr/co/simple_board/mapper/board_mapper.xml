@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.simple_board.board">
+
+	<select id="selectTotalCnt" resultType="int">
+		SELECT COUNT(*) cnt
+		FROM simple_board
+	</select>
+	
+	<select id="selectPostList" parameterType="kr.co.simple_board.vo.PostListVO" resultType="kr.co.simple_board.domain.Post">
+		SELECT sb_num, subject, TO_CHAR(input_date, 'yyyy-mm-dd') input_date, view_cnt
+		FROM 	(SELECT sb_num, subject, input_date, view_cnt, row_number() over( order by input_date desc ) r_num
+		       FROM simple_board)
+		WHERE r_num BETWEEN #{ begin } AND #{ end }
+	</select>
+	
+	<select id="selectDetailPost" parameterType="String" resultType="kr.co.simple_board.domain.DetailPost">
+		SELECT subject, content, input_date, view_cnt
+    FROM simple_board
+		WHERE sb_num=#{ sb_num }
+	</select>
+	
+	<update id="updateViewCnt" parameterType="String">
+		UPDATE simple_board
+		SET view_cnt=view_cnt+1
+		WHERE sb_num = #{ sb_num }
+	</update>
+	
+	<insert id="insertNewPost" parameterType="kr.co.simple_board.vo.NewPostVO">
+		INSERT INTO simple_board(sb_num, subject, content)
+		VALUES(sb_code, #{ subject }, #{ content })
+	</insert>
+</mapper>

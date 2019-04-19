@@ -31,26 +31,26 @@
     <div style="height:20px;"></div>
 			<div class="row">
 				<div class="col-9 " style="margin-top: 10px; margin-left: 100px;">
-					<label style="font-size: 25px;">제목제목</label>
+					<label style="font-size: 25px;"><c:out value="${ detailPost.subject }"/></label>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-9 " style="margin-top: 10px; margin-left: 100px;">
 					<label style="width: 50px;">등록일</label> 
-					<label style="width: 200px; margin-left: 30px;">2019</label> 
+					<label style="width: 200px; margin-left: 30px;"><c:out value="${ detailPost.input_date }"/></label> 
 					<label style="width: 50px; margin-left: 20px;">조회수</label> 
-					<label style="width: 100px; margin-left: 30px;">0000</label>
+					<label style="width: 100px; margin-left: 30px;"><c:out value="${ detailPost.view_cnt }"/></label>
 				</div>
 
 			</div>
 			<div class="row">
 				<div class="col" style="margin-top: 10px; text-align: center;">
-					<textarea cols="65" rows="10" readonly="readonly"></textarea>
+					<textarea cols="65" rows="10" readonly="readonly"><c:out value="${ detailPost.content }"/></textarea>
 				</div>
 			</div>
 
 			<div class="row justify-content-center" style="margin-top: 30px;">
-				<a class="btn btn-secondary btn" href="#void" role="button">목록으로</a>
+				<a class="btn btn-secondary btn" href="javascript:location.href='index.do?currPage=${ param.currPage }'" role="button">목록으로</a>
 			</div>
 		</div>
 	</form>
