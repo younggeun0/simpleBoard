@@ -15,9 +15,9 @@
 
 ## 클래스 다이어그램
 
-![02](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/simpleBoard/03.png?raw=true)
+![03](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/simpleBoard/03.png?raw=true)
 
 
 ## 시연
 
-![02](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/simpleBoard/04.gif?raw=true)
+![04](https://github.com/younggeun0/younggeun0.github.io/blob/master/_posts/img/toyProjects/simpleBoard/04.gif?raw=true)
